@@ -1,0 +1,113 @@
+@use "sass:math";
+// variables
+$grid-dimension: 16;
+$perspective: 50rem;
+$angle: 18deg;
+
+// global styles
+:root {
+  --shadow-color: 150 100% 10%;
+  --card-shadow: 0 -1px 2px 0 hsl(var(--shadow-color) / 17%),
+    0 2px 1px -2px hsl(var(--shadow-color) / 18%),
+    0 5px 5px -2px hsl(var(--shadow-color) / 18%),
+    0 10px 10px -2px hsl(var(--shadow-color) / 19%),
+    0 20px 20px -2px hsl(var(--shadow-color) / 20%),
+    0 40px 40px -2px hsl(var(--shadow-color) / 22%);
+}
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(
+    45deg,
+    hsl(191, 86%, 49%),
+    hsl(280, 78%, 69%),
+    hsl(356, 90%, 64%)
+  );
+  // overflow: hidden;
+}
+
+img {
+  max-width: 30vmax;
+}
+
+// the tilting effect
+.card {
+  --perspective: #{$perspective};
+  --angle: #{$angle};
+
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat($grid-dimension, 1fr);
+  grid-template-rows: repeat($grid-dimension, 1fr);
+  &-image {
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    box-shadow: var(--card-shadow);
+    // transform: perspective(var(--perspective));
+    transition: all 250ms ease;
+  }
+}
+
+.mouse-tracker {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  z-index: 2;
+
+  // &:hover {
+  //   background-color: hsl(150, 100%, 70%);
+  // }
+
+  @for $i from 0 to $grid-dimension {
+    &:nth-of-type(#{$grid-dimension}n - #{$i}) {
+      grid-column: #{$grid-dimension - $i} / #{$grid-dimension - $i + 1};
+    }
+  }
+
+  @for $i from 0 to $grid-dimension {
+    &:nth-of-type(n + #{$i * $grid-dimension + 1}):nth-of-type(
+        -n + #{$i * $grid-dimension + $grid-dimension}
+      ) {
+      grid-row: #{$i + 1} / #{$i + 2};
+    }
+  }
+
+  $index: 1;
+  @for $i from 0 to $grid-dimension {
+    @for $j from 0 to $grid-dimension {
+      &:nth-of-type(#{$index}):hover ~ .card-image {
+        transform: perspective(var(--perspective))
+          rotateX(
+            calc(
+              math.sin(-90deg + $i * calc(180deg / $grid-dimension)) *
+                var(--angle) *
+                -1
+            )
+          )
+          rotateY(
+            calc(
+              math.sin(-90deg + $j * calc(-180deg / $grid-dimension)) *
+                var(--angle)
+            )
+          );
+      }
+      $index: $index + 1;
+    }
+  }
+}

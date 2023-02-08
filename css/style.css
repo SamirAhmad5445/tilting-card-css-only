@@ -1,0 +1,919 @@
+:root {
+  --shadow-color: 150 100% 10%;
+  --card-shadow: 0 -1px 2px 0 hsl(var(--shadow-color) / 17%),
+    0 2px 1px -2px hsl(var(--shadow-color) / 18%),
+    0 5px 5px -2px hsl(var(--shadow-color) / 18%),
+    0 10px 10px -2px hsl(var(--shadow-color) / 19%),
+    0 20px 20px -2px hsl(var(--shadow-color) / 20%),
+    0 40px 40px -2px hsl(var(--shadow-color) / 22%);
+}
+
+html,
+body {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-image: linear-gradient(45deg, hsl(191deg, 86%, 49%), hsl(280deg, 78%, 69%), hsl(356deg, 90%, 64%));
+}
+
+img {
+  max-width: 30vmax;
+}
+
+.card {
+  --perspective: 50rem;
+  --angle: 18deg;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+.card-image {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+  box-shadow: var(--card-shadow);
+  transition: all 250ms ease;
+}
+
+.mouse-tracker {
+  position: absolute;
+  inset: 0;
+  opacity: 0.25;
+  z-index: 2;
+}
+.mouse-tracker:nth-of-type(16n - 0) {
+  grid-column: 16/17;
+}
+.mouse-tracker:nth-of-type(16n - 1) {
+  grid-column: 15/16;
+}
+.mouse-tracker:nth-of-type(16n - 2) {
+  grid-column: 14/15;
+}
+.mouse-tracker:nth-of-type(16n - 3) {
+  grid-column: 13/14;
+}
+.mouse-tracker:nth-of-type(16n - 4) {
+  grid-column: 12/13;
+}
+.mouse-tracker:nth-of-type(16n - 5) {
+  grid-column: 11/12;
+}
+.mouse-tracker:nth-of-type(16n - 6) {
+  grid-column: 10/11;
+}
+.mouse-tracker:nth-of-type(16n - 7) {
+  grid-column: 9/10;
+}
+.mouse-tracker:nth-of-type(16n - 8) {
+  grid-column: 8/9;
+}
+.mouse-tracker:nth-of-type(16n - 9) {
+  grid-column: 7/8;
+}
+.mouse-tracker:nth-of-type(16n - 10) {
+  grid-column: 6/7;
+}
+.mouse-tracker:nth-of-type(16n - 11) {
+  grid-column: 5/6;
+}
+.mouse-tracker:nth-of-type(16n - 12) {
+  grid-column: 4/5;
+}
+.mouse-tracker:nth-of-type(16n - 13) {
+  grid-column: 3/4;
+}
+.mouse-tracker:nth-of-type(16n - 14) {
+  grid-column: 2/3;
+}
+.mouse-tracker:nth-of-type(16n - 15) {
+  grid-column: 1/2;
+}
+.mouse-tracker:nth-of-type(n + 1):nth-of-type(-n + 16) {
+  grid-row: 1/2;
+}
+.mouse-tracker:nth-of-type(n + 17):nth-of-type(-n + 32) {
+  grid-row: 2/3;
+}
+.mouse-tracker:nth-of-type(n + 33):nth-of-type(-n + 48) {
+  grid-row: 3/4;
+}
+.mouse-tracker:nth-of-type(n + 49):nth-of-type(-n + 64) {
+  grid-row: 4/5;
+}
+.mouse-tracker:nth-of-type(n + 65):nth-of-type(-n + 80) {
+  grid-row: 5/6;
+}
+.mouse-tracker:nth-of-type(n + 81):nth-of-type(-n + 96) {
+  grid-row: 6/7;
+}
+.mouse-tracker:nth-of-type(n + 97):nth-of-type(-n + 112) {
+  grid-row: 7/8;
+}
+.mouse-tracker:nth-of-type(n + 113):nth-of-type(-n + 128) {
+  grid-row: 8/9;
+}
+.mouse-tracker:nth-of-type(n + 129):nth-of-type(-n + 144) {
+  grid-row: 9/10;
+}
+.mouse-tracker:nth-of-type(n + 145):nth-of-type(-n + 160) {
+  grid-row: 10/11;
+}
+.mouse-tracker:nth-of-type(n + 161):nth-of-type(-n + 176) {
+  grid-row: 11/12;
+}
+.mouse-tracker:nth-of-type(n + 177):nth-of-type(-n + 192) {
+  grid-row: 12/13;
+}
+.mouse-tracker:nth-of-type(n + 193):nth-of-type(-n + 208) {
+  grid-row: 13/14;
+}
+.mouse-tracker:nth-of-type(n + 209):nth-of-type(-n + 224) {
+  grid-row: 14/15;
+}
+.mouse-tracker:nth-of-type(n + 225):nth-of-type(-n + 240) {
+  grid-row: 15/16;
+}
+.mouse-tracker:nth-of-type(n + 241):nth-of-type(-n + 256) {
+  grid-row: 16/17;
+}
+.mouse-tracker:nth-of-type(1):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(2):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(3):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(4):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(5):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(6):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(7):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(8):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(9):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(10):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(11):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(12):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(13):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(14):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(15):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(16):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-1 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(17):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(18):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(19):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(20):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(21):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(22):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(23):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(24):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(25):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(26):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(27):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(28):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(29):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(30):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(31):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(32):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9807852804 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(33):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(34):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(35):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(36):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(37):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(38):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(39):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(40):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(41):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(42):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(43):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(44):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(45):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(46):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(47):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(48):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.9238795325 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(49):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(50):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(51):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(52):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(53):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(54):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(55):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(56):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(57):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(58):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(59):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(60):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(61):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(62):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(63):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(64):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.8314696123 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(65):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(66):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(67):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(68):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(69):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(70):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(71):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(72):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(73):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(74):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(75):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(76):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(77):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(78):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(79):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(80):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.7071067812 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(81):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(82):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(83):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(84):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(85):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(86):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(87):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(88):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(89):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(90):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(91):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(92):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(93):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(94):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(95):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(96):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.555570233 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(97):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(98):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(99):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(100):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(101):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(102):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(103):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(104):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(105):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(106):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(107):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(108):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(109):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(110):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(111):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(112):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.3826834324 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(113):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(114):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(115):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(116):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(117):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(118):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(119):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(120):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(121):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(122):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(123):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(124):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(125):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(126):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(127):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(128):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(-0.195090322 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(129):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(130):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(131):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(132):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(133):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(134):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(135):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(136):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(137):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(138):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(139):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(140):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(141):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(142):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(143):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(144):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(145):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(146):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(147):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(148):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(149):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(150):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(151):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(152):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(153):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(154):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(155):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(156):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(157):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(158):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(159):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(160):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.195090322 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(161):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(162):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(163):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(164):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(165):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(166):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(167):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(168):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(169):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(170):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(171):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(172):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(173):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(174):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(175):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(176):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.3826834324 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(177):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(178):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(179):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(180):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(181):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(182):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(183):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(184):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(185):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(186):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(187):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(188):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(189):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(190):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(191):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(192):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.555570233 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(193):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(194):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(195):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(196):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(197):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(198):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(199):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(200):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(201):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(202):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(203):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(204):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(205):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(206):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(207):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(208):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.7071067812 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(209):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(210):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(211):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(212):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(213):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(214):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(215):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(216):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(217):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(218):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(219):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(220):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(221):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(222):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(223):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(224):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.8314696123 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(225):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(226):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(227):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(228):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(229):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(230):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(231):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(232):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(233):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(234):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(235):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(236):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(237):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(238):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(239):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(240):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9238795325 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(241):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-1 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(242):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.9807852804 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(243):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(244):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(245):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(246):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(247):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(248):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(-0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(249):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(250):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.195090322 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(251):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.3826834324 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(252):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.555570233 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(253):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.7071067812 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(254):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.8314696123 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(255):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.9238795325 * var(--angle)));
+}
+.mouse-tracker:nth-of-type(256):hover ~ .card-image {
+  transform: perspective(var(--perspective)) rotateX(calc(0.9807852804 * var(--angle) * -1)) rotateY(calc(0.9807852804 * var(--angle)));
+}/*# sourceMappingURL=style.css.map */
