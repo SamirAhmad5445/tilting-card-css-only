@@ -7,5 +7,4 @@ for (let i = 0; i < gridDimension ** 2; i++) {
   mouseTracker.className = "mouse-tracker";
   mouseTracker.setAttribute("aria-hidden", "true");
   card.insertBefore(mouseTracker, cardImage);
-  // console.log(i);
 }
